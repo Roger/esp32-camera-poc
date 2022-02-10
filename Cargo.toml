@@ -1,0 +1,39 @@
+[package]
+name = "esp-cam"
+version = "0.1.0"
+authors = ["roger <rogerduran@gmail.com>"]
+edition = "2018"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[profile.release.package.num-rational]
+opt-level = "z"
+debug = true
+debug-assertions = true
+overflow-checks = true
+incremental = true
+codegen-units = 256
+
+[features]
+native = ["esp-idf-sys/native"]
+
+[dependencies]
+esp-idf-sys = { version = "0.30.3", features = ["binstart"] }
+embedded-hal = "0.2"
+esp-idf-hal = "0.32.9"
+
+embedded-svc = { version = "0.16" }
+esp-idf-svc = { version = "0.36.9" }
+image = { version = "0.24.0", default-features = false, features = ["bmp"] }
+libc = "0.2.117"
+
+[build-dependencies]
+embuild = "0.28"
+anyhow = "1"
+bindgen = "0.59.2"

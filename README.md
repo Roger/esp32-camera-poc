@@ -9,7 +9,13 @@ and sending to stdout, using something like espmonitor you can see the ascii ima
 
 Code is partially a translation of examples in https://github.com/espressif/esp32-camera/ from C to Rust
 
+Demo:
+-----
+
+[![asciicast](https://asciinema.org/a/VdVWglIPwOHM0yemYC3YJzMSL.svg)](https://asciinema.org/a/VdVWglIPwOHM0yemYC3YJzMSL)
+
 Problems encountered while creating the PoC:
+--------------------------------------------
 
 * Need to include Kconfig from esp32-camera in pio-project generated in esp-idf-sys
 
